@@ -1,0 +1,23 @@
+{
+  "name": "fastify1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/config": "0.0.34",
+    "@types/mongodb": "^3.3.1",
+    "@types/node": "^12.7.2",
+    "config": "^3.2.2",
+    "fastify": "^2.7.1",
+    "fastify-plugin": "^1.6.0",
+    "js-yaml": "^3.13.1",
+    "mongodb": "^3.3.0",
+    "nano": "^8.1.0"
+  }
+}

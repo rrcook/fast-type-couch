@@ -1,0 +1,8 @@
+mongodb:
+    url: "mongodb://developer:developer123@localhost:27017"
+
+couchdb:
+    url: "http://admin:admin123@localhost:5984"
+
+messages:
+    message: "Richard deserves a raise."        
