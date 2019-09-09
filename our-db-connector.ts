@@ -12,4 +12,4 @@ async function dbConnector (fastify: fastify.FastifyInstance, options: { [key: s
 
 // Wrapping a plugin function with fastify-plugin exposes the decorators,
 // hooks, and middlewares declared inside the plugin to the parent scope.
-module.exports = fastifyPlugin(dbConnector)
+export default fastifyPlugin(dbConnector)

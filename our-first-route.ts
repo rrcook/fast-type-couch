@@ -48,4 +48,4 @@ async function routes(fastify: fastify.FastifyInstance, options: { [key: string]
     })
 }
 
-module.exports = routes  
+export default routes  
