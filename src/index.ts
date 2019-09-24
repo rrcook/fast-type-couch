@@ -1,7 +1,6 @@
 import fastify from 'fastify'
 import * as http from 'http'
 import couchConnector from './our-couch-connector'
-import mongoConnector from './our-db-connector'
 import routes from './our-first-route'
 // import * as config from 'config'
 // This line works, above doesn't. Gotta love Typescript
@@ -13,9 +12,6 @@ import config = require("config");
 //   })
 
 const server: fastify.FastifyInstance<http.Server, http.IncomingMessage, http.ServerResponse> = fastify({ logger: true})
-// const server = fastify()
-
-server.register(mongoConnector, config.get('mongodb'))
 
 server.register(couchConnector, config.get('couchdb'))
 
