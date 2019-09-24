@@ -6,9 +6,9 @@ async function couchConnector (fastify: fastify.FastifyInstance, options: { [key
     const url = options.url
   
     let n = Nano(url)
-    let locations = n.db.use('locations')
+    let patients = n.db.use('patients')
 
-    fastify.decorate('couch', locations)
+    fastify.decorate('couch', patients)
   }
   
 // Wrapping a plugin function with fastify-plugin exposes the decorators,
