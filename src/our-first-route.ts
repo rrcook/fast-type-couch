@@ -1,13 +1,11 @@
 import * as fastify from 'fastify'
-import { createReadStream } from 'fs'
 import * as http from 'http'
 import {MangoQuery} from 'nano'
+import {getRecordFromId, getRecordsFromState} from './couchdb-service'
 // our-first-route.js
 
 
 async function routes(fastify: fastify.FastifyInstance, options: { [key: string]: any; }) {
-    // const database = fastify.mongo.db('addressmatcher')
-    // const collection = database.collection('locations')
     
     const couchDB = fastify.couch
 
@@ -26,10 +24,19 @@ async function routes(fastify: fastify.FastifyInstance, options: { [key: string]
         console.log("id = " + request.params.id)
         const oid = request.params.id
         console.log("Made it past oid creation")
-        const query: MangoQuery = { selector: { id: oid } };
-        // const result = await couchDB.get(oid)
-        const result = await couchDB.find(query)
-        // const result = await collection.findOne()
+        const result = getRecordFromId(couchDB, oid)
+        if (result === null) {
+            throw new Error('Invalid value')
+        }
+        return result
+    })
+
+    fastify.get('/state/:id', async (request: fastify.FastifyRequest<http.IncomingMessage>,
+        reply: fastify.FastifyReply<http.ServerResponse>) => {
+        console.log("id = " + request.params.id)
+        const oid = request.params.id
+        console.log("Made it past oid creation")
+        const result = getRecordsFromState(couchDB, oid)
         if (result === null) {
             throw new Error('Invalid value')
         }
