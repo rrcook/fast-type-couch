@@ -1,12 +1,12 @@
 import * as fastify from 'fastify'
 import * as http from 'http'
-import {MangoQuery} from 'nano'
-import {getRecordFromId, getRecordsFromState} from './couchdb-service'
+import { MangoQuery } from 'nano'
+import { getRecordFromId, getRecordsFromState } from './couchdb-service'
 // our-first-route.js
 
 
-async function routes(fastify: fastify.FastifyInstance, options: { [key: string]: any; }) {
-    
+async function routes(fastify: fastify.FastifyInstance, options: { [key: string]: any }) {
+
     const couchDB = fastify.couch
 
     fastify.get('/', async (request: fastify.FastifyRequest<http.IncomingMessage>,

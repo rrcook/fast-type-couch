@@ -4,14 +4,14 @@ import couchConnector from './our-couch-connector'
 import routes from './our-first-route'
 // import * as config from 'config'
 // This line works, above doesn't. Gotta love Typescript
-import config = require("config");
+import config = require("config")
 
 // Require the framework and instantiate it
 // const fastify = require('fastify')({
 //     logger: true
 //   })
 
-const server: fastify.FastifyInstance<http.Server, http.IncomingMessage, http.ServerResponse> = fastify({ logger: true})
+const server: fastify.FastifyInstance<http.Server, http.IncomingMessage, http.ServerResponse> = fastify({ logger: true })
 
 server.register(couchConnector, config.get('couchdb'))
 
